@@ -66,4 +66,4 @@ positiveWords = [
 "diplomatic",
 "curious",
 "a leader" ]
-print("You are a %s!" % choice(positiveWords))
+print("You are %s!" % choice(positiveWords))
