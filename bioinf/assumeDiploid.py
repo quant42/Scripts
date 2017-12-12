@@ -21,19 +21,56 @@ with open(sys.argv[2], "w") as outF:
         lst = data[key]
         if len(lst) == 1:
             name, seq = lst[0]
+            outF.write(">")
             outF.write(name)
             outF.write("_1\n")
             outF.write(seq)
             outF.write("\n")
             name, seq = lst[0]
+            outF.write(">")
             outF.write(name)
             outF.write("_2\n")
             outF.write(seq)
             outF.write("\n")
+        elif len(lst) == 2:
+            name1, seq1 = lst[0]
+            name2, seq2 = lst[1]
+            if seq1 == seq2:
+                outF.write(">")
+                outF.write(name1)
+                outF.write("\n")
+                outF.write(seq1)
+                outF.write("\n")
+                outF.write(">")
+                outF.write(name2)
+                outF.write("\n")
+                outF.write(seq2)
+                outF.write("\n")
+            else:
+                outF.write(">")
+                outF.write(name1)
+                outF.write("\n")
+                outF.write(seq1)
+                outF.write("\n")
+                outF.write(">")
+                outF.write(name1)
+                outF.write("\n")
+                outF.write(seq1)
+                outF.write("\n")
+                outF.write(">")
+                outF.write(name2)
+                outF.write("\n")
+                outF.write(seq2)
+                outF.write("\n")
+                outF.write(">")
+                outF.write(name2)
+                outF.write("\n")
+                outF.write(seq2)
+                outF.write("\n")
         else:
-            if len(lst) >= 3:
-                print("WARNING: More than 2 sequences found for individual '%s'" % key)
+            print("WARNING: More than 2 sequences found for individual '%s'" % key)
             for name, seq in lst:
+                outF.write(">")
                 outF.write(name)
                 outF.write("\n")
                 outF.write(seq)
