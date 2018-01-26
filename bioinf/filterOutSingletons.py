@@ -16,8 +16,6 @@ with open(sys.argv[1], "r") as inF:
         l.append(fullName)
         data[seq] = l
 
-#print(data)
-
 # now filter out all singletons
 with open(sys.argv[2], "w") as outF:
     for seq in data:
@@ -25,6 +23,6 @@ with open(sys.argv[2], "w") as outF:
         indNames = set()
         for name in names:
             indNames.add(getName(name))
-        if indNames >= 2:
+        if len(indNames) >= 2:
             for name in names:
                 outF.write(">%s\n%s\n" % (name, seq))
